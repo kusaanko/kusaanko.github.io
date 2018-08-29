@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ModCreatorALPHA</title>
+  <style>
+  body {
+    margin: 0;
+  }
+  .download {
+    color: #909565;
+    border: 1px solid #cbda51;
+    padding: 20px;
+    text-decoration: none;
+    transition-duration: 0.5s;
+  }
+  .download:hover {
+    color: #535353;
+    background-color: #cbda51;
+  }
+  </style>
+</head>
+<?php $check = '<font style="color: green">✓</font>';?>
+<body style="font-family: メイリオ,sans-serif;color: #141414;">
+  <img src="2018-01-09_04.52.37.png" style="top: 0px;left: 0px;width: 100%;position: fixed;z-index: -1;"></img>
+  <div style="z-index: 2;margin-top: 400px;background: white;">
+    <center style="font-size: 35px;"><h2>ModCreator<font style="color: red;border: 2px solid red;border-radius: 20px;font-size: 30px;">ALPHA</font>とは？</h2></center>
+    <center style="font-size: 21px;">
+      ModCreatorとは、Javaの分からない人でもMinecraft&nbsp;Forge用のMODが作れるツールです。<br>このツールの利用にはJavaの知識を一切必要としません。必要なのは想像力だけです。<br><br><br>
+      <img src="ModCreator.png"></img><br>
+      <img src="ModCreator2.png"></img><br><br><br>
+      <h1>様々なプラットフォームで動く</h1>
+      ModCreatorはJavaで書かれたソフトです。<br>
+      Javaに対応しているOSであればModCreatorを使うことが出来ます。<br><br>
+      <?php echo $check;?>Windows<br>
+      <?php echo $check;?>Mac<br>
+      <?php echo $check;?>Linux<br><br>
+      代表的な3つのOSに対応<br><br><br><br>
+      <h1>MCreatorとModCreator</h1>
+      ModCreatorはMCreatorとは全くの別物です。<br>
+      ですがMCreatorがライバルというわけではありません。ModCreator作者はMCreatorを尊敬しています。<br>
+      <h1>MCreatorとの機能比較</h1>
+      <table border="1" cellspacing="0" cellpadding="5" bordercolor="#333333">
+        <tr><th>機能</th><th>ModCreator</th><th>MCreator</th></tr>
+        <tr><th>複数OS対応</th><th><?php echo $check;?></th><th><?php echo $check;?></th></tr>
+        <tr><th>複数MCバージョン対応</th><th>1.7.10のみ</th><th><?php echo $check;?></th></tr>
+        <tr><th>レシピ追加</th><th><?php echo $check;?></th><th><?php echo $check;?></th></tr>
+        <tr><th>ブロック追加</th><th>-</th><th><?php echo $check;?></th></tr>
+        <tr><th>アイテム追加</th><th><?php echo $check;?></th><th><?php echo $check;?></th></tr>
+        <tr><th>その他の追加</th><th>-</th><th><?php echo $check;?></th></tr>
+        <tr><th>レシピ追加のやりやすさ</th><th>-</th><th><?php echo $check;?></th></tr>
+        <tr><th>MODのテスト</th><th><?php echo $check;?></th><th><?php echo $check;?></th></tr>
+        <tr><th>MOD出力の速度</th><th>-</th><th>-</th></tr>
+        <tr><th>ソフトの速度</th><th><?php echo $check;?></th><th>-</th></tr>
+        <tr><th>MCの速度</th><th>-</th><th>-</th></tr>
+        <tr><th>Forgeセットアップの速度</th><th><?php echo $check;?></th><th>-</th></tr>
+        <tr><th>ソースコードの書き換え</th><th>-</th><th><?php echo $check;?></th></tr>
+        <tr><th>テクスチャの用意のしやすさ</th><th>-</th><th><?php echo $check;?></th></tr>
+        <tr><th>アカウントが不要か</th><th><?php echo $check;?></th><th>-</th></tr>
+        <tr><th>一つのソフトで複数のMOD製作</th><th><?php echo $check;?></th><th>最大5個</th></tr>
+        <tr><th>言語</th><th>日本語</th><th>英語</th></tr>
+      </table><br><br><br><br>
+      <h2 style="font-weight: normal;">FAQ</h2>
+      Q:ModCreatorが起動できません。<br>
+      A:Java8以上のバージョンのJavaをインストールしてください。<br><br>
+      Q:JDKは必要ですか？<br>
+      A:はい、必要です。JAVA_HOMEのパスも通しておいてください。<br>
+      ですが将来JDKの自動インストール機能を作る予定です。<br><br>
+      Q:完全に無料ですか？<br>
+      A:はい、完全に無料です。
+      <br><br><br><br>
+      <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href="https://t.co/A89uyJxDiz">https://t.co/A89uyJxDiz</a><br>ついにModCreator配布！<br>現在の機能:Forgeセットアップ・レシピ追加・アイテムの追加<br>ALPHAは不安定ですのでご注意ください。<br>バグ報告はとりあえずこのツイートにリプでお願いします</p>&mdash; 草あんこ (@kusaanko) <a href="https://twitter.com/kusaanko/status/952187310107377665?ref_src=twsrc%5Etfw">2018年1月13日</a></blockquote>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <br>
+      <a href="download" class="download">DOWNLOAD ModCreatorALPHA</a><br><br><br><br>
+      <h1>これからのModCreator</h1><br>
+      アイテム・ブロック・ツールの追加に対応<br>
+      MC1.7.10～MC1.12.2まで対応<br>
+      <br><br><br><br>
+    </center>
+  </div>
+</body>
+</html>
