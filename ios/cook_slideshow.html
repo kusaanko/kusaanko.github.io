@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Cook Slideshow</title>
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="cook_slideshow.png">
+  <style>
+    body {
+      margin: 0;
+    }
+    .box {
+      border: 1px solid #217af1;
+      border-radius: 10px;
+      width: 300px;
+      height: 300px;
+      line-height: 300px;
+    }
+    img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div id="body">
+    <div align="center">
+      <h1>Cook Slideshow</h1>
+      <div class="box" id="photo">
+        フォトライブラリから読み込む
+      </div>
+    </div>
+    <input type="file" name="file" id="filechooser" style="display: none;" multiple>
+  </div>
+  <div id="slideshow">
+
+  </div>
+  <div id="error" style="display: none;">
+    <h1>You are not using iOS device.</h1>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    const ua = navigator.userAgent;
+    const isIOS = ua.indexOf("iPhone") >= 0
+      || ua.indexOf("iPad") >= 0
+      || navigator.userAgent.indexOf("iPod") >= 0;
+    var body = $('#body');
+    if(isIOS) {
+      var pics = new Array();
+      var now = 0;
+      $('#photo').on('click', function() {
+        $('#filechooser').click();
+        return false;
+      });
+      $('#filechooser').change(function(event) {
+        body.css('display','none');
+        var fileList = this.files ;
+
+      	// 個数分の画像を表示する
+      	for( var i=0,l=fileList.length; l>i; i++ ) {
+      		// Blob URLの作成
+      		var blobUrl = window.URL.createObjectURL( fileList[i] ) ;
+
+      		// HTMLに書き出し (src属性にblob URLを指定)
+          pics.push('<img src="' + blobUrl + '" class="picture">');
+        }
+        $('#slideshow').html(pics[0]);
+        window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
+        var recognition = new webkitSpeechRecognition();
+        recognition.lang = 'ja';
+        recognition.addEventListener('result', function(event){
+            var text = event.results.item(0).item(0).transcript;
+            alert(text);
+        }, false);
+        recognition.start();
+      });
+      $('#slideshow').on('click', function(event) {
+        if(event.offsetX<window.innerWidth/2) {
+          now--;
+          if(now<0) now = pics.length-1;
+        }else {
+          now++;
+          if(now==pics.length) now = 0;
+        }
+        $('#slideshow').html(pics[now]);
+      });
+    }else {
+      body.css('display','none');
+      $('#error').css('display','block');
+    }
+  </script>
+</body>
+</html>
