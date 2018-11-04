@@ -58,6 +58,7 @@
       }, _handleSuccess, _handleError);
       function _handleSuccess(event) {
         $('#photo').on('click', function() {
+          $('#filechooser').click();
           let LENGTH   = 16,
           audioCtx = new (window.AudioContext || window.webkitAudioContext)(),
           options  = {
@@ -78,10 +79,6 @@
           }
         });
       }
-      $('#photo').on('click', function() {
-        $('#filechooser').click();
-        return false;
-      });
       $('#filechooser').change(function(event) {
         body.css('display','none');
         var fileList = this.files ;
