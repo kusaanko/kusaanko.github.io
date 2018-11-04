@@ -53,6 +53,31 @@
     if(isIOS) {
       var pics = new Array();
       var now = 0;
+      navigator.getUserMedia({
+        audio: true
+      }, _handleSuccess, _handleError);
+      function _handleSuccess(event) {
+        $('#photo').on('click', function() {
+          let LENGTH   = 16,
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)(),
+          options  = {
+            mediaStream : event
+          },
+          src      = audioCtx.createMediaStreamSource(event),
+          analyser = audioCtx.createAnalyser(event),
+          data   = new Uint8Array(LENGTH),
+          w      = 0,
+          i      = 0;
+
+          btn.classList.add("off");
+          analyser.fftSize = 1024;
+          src.connect(analyser);
+
+          for (i = 0; i < LENGTH; ++i) {
+            console.log(data[i]);
+          }
+        }
+      }
       $('#photo').on('click', function() {
         $('#filechooser').click();
         return false;
@@ -70,14 +95,6 @@
           pics.push('<img src="' + blobUrl + '" class="picture">');
         }
         $('#slideshow').html(pics[0]);
-        window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
-        var recognition = new webkitSpeechRecognition();
-        recognition.lang = 'ja';
-        recognition.addEventListener('result', function(event){
-            var text = event.results.item(0).item(0).transcript;
-            alert(text);
-        }, false);
-        recognition.start();
       });
       $('#slideshow').on('click', function(event) {
         if(event.offsetX<window.innerWidth/2) {
