@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>OldMCPatcher</title>
+    <style>
+      * {
+        font-family: meiryo, sans-serif;
+      }
+      .main {
+        margin: 0 40px;
+      }
+      h2 {
+        border-bottom: 1px solid #636363;
+        border-left: 3px solid #636363;
+        padding: 2px;
+      }
+      h3 {
+        border-bottom: 1px solid #636363;
+        padding: 2px;
+      }
+      p {
+        margin: 2px 0;
+        color: #262626;
+      }
+      img {
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>ことば</h1>
+      <ul>
+        <li>Minecraft Launcher 2.0以降=新ランチャー</li>
+        <li>Minecraft 1.0～1.5.2=旧Minecraft</li>
+        <li>jarファイル=.minecraft/versions/バージョン/バージョン.jarのMinecraft本体のjarファイル</li>
+        <li>jsonファイル=.minecraft/versions/バージョン/バージョン.jsonの設定ファイルファイル</li>
+      </ul>
+      <h1>OldMCPatcher</h1>
+      <p>新ランチャーで旧Minecraftを動かせるようにするMODです。</p>
+      <p>ダウンロードリンク:<a href="https://github.com/kusaanko/OldMCPatcher/releases">https://github.com/kusaanko/OldMCPatcher/releases</a></p>
+      <p>サポートランチャーバージョン:2.x</p>
+      <p>サポートマインクラフトバージョン:1.0～1.5.2</p>
+      <br>
+      <h2>概要</h2>
+      <p>新ランチャーで旧Minecraftが正常に動作するようにするMODです。</p>
+      <p>このMODには以下のパッチが含まれます。</p>
+      <ul>
+        <li>ゲームディレクトリ変更パッチ</li>
+        <li>サウンドダウンロード・ロードパッチ</li>
+        <li>スキン適応パッチ</li>
+      </ul>
+      <p>また、旧ランチャーと同様の起動方法に変更するので旧ランチャー推奨MODも動作します。</p>
+      <li>前提MODはないのでバニラ・Forge環境でも動作します。</li>
+      <br>
+      <h2>新ランチャーでの旧Minecraft起動の仕様</h2>
+      <ul>
+        <li>新ランチャーでは旧ランチャーと同様の起動はしてくれません。そのため、ウィンドウのタイトルを変更するMODなどはクラッシュします。</li>
+        <li>ゲームディレクトリを変更した場合でもほとんどのバージョンではゲームディレクトリは変更されません。</li>
+        <li>リソースサーバーが移動したのでリソースがダウンロードできません。つまり、音が出ません。ただし、過去に旧Minecraftを起動したことがあり、resourcesフォルダを持っている場合はゲームディレクトリに入れることで音がなります。</li>
+      </ul>
+      <br>
+      <h2>OldMCPatcherのパッチ内容</h2>
+      <ul>
+        <li>新ランチャーで設定したゲームディレクトリにMinecraftのファイルが生成、読み込みされるようにします。</li>
+        <li>リソースのダウンロード元を新しいURLに変更し、適切にダウンロードします。読み込みにもパッチを当て、エラーなく音がなるようにします。</li>
+        <li>旧ランチャーと同様の動作にします。</li>
+        <li>スキンを適切なサイトからダウンロードし読み込みます。</li>
+      </ul>
+      <br>
+      <h2>OldMCPatcherの導入方法</h2>
+      <ol>
+        <li>MOD本体をダウンロードします。</li>
+        <li>.minecraft/versionsフォルダ内にある起動したいMinecraftのバージョンのフォルダをコピー＆ペーストし、好きな名前に変更します（バージョン+お好きな名前を推奨します。）</li>
+        <li>ペーストしたフォルダ内の.jar、.jsonファイルも同じ名前に変更します。</li>
+        <li>jarファイル、ダウンロードしたOldMCPatcherを7-Zip等で開き、OldMCPatcherの中身をjarファイルの中にコピーします。</li>
+        <li>jarファイル内のMETA-INFフォルダを削除します。</li>
+        <li>jsonファイルをテキストエディタ等で開きます。</li>
+        <li>「"id": "変更前の名前"」という項目があるので、決めた名前に書き換えます。</li>
+        <li>※1の文を削除します。</li>
+        <li>"mainClass": "net.minecraft.launchwrapper.Launch"を"mainClass": "net.minecraft.client.OldMCPatcher.Main"に書き換えます。</li>
+      </ol>
+      <p>※1</p>
+      <pre>"downloads": {
+	"client": {
+		"sha1": "4a2fac7504182a97dcbcd7560c6392d7c8139928",
+		"size": 4032098,
+		"url": "https://launcher.mojang.com/v1/objects/4a2fac7504182a97dcbcd7560c6392d7c8139928/client.jar"
+	},
+	"server": {
+		"sha1": "d8321edc9470e56b8ad5c67bbd16beba25843336",
+		"size": 1408470,
+		"url": "https://launcher.mojang.com/v1/objects/d8321edc9470e56b8ad5c67bbd16beba25843336/server.jar"
+	},
+	"windows_server": {
+		"sha1": "8eaf5909489d9b54fd9748ddbbb4b6870a1d3de6",
+		"size": 1589718,
+		"url": "https://launcher.mojang.com/v1/objects/8eaf5909489d9b54fd9748ddbbb4b6870a1d3de6/windows_server.exe"
+	}
+},</pre>
+    <p>※1は全く同じとは限らない。sha1、size、urlが変わっている場合もある。また、整形済みの文字なので実際は1行で書かれていることにも注意。</p>
+    <p>※1はjarファイルがバニラのものに書き換わらないようにするために削除している。試しに書いたまま起動するとバニラが起動してしまう。</p>
+    <p>以上の手順を行うことでOldMCPatcherの導入が完了となります。jar導入系MODであり、jsonの書き換えが必要なので手順は多いですが、頑張ってください。</p>
+    <br>
+    <h2>スキン適応パッチ</h2>
+    <p>スキン適応パッチはゲームディレクトリのresources/skin/playerSkin.zipファイルを読み書きします。容量は1KBを下回ると思います。</p>
+    <br>
+    <h2>クラッシュレポート</h2>
+    <p>クラッシュレポートに以下の文字が含まれていればOldMCPatcherのせいでクラッシュしています。</p>
+    <ul>
+      <li>net.minecraft.Launcher</li>
+      <li>net.minecraft.client.OldMCPatcher</li>
+    </ul>
+    <br>
+    <br>
+    <h1>MCAddToJar</h1>
+    <img src="MCAddToJar/start.png">
+    <p>OldMCPatcher導入サポートソフト。</p>
+    <p>ダウンロードリンク:<a href="https://github.com/kusaanko/MCAddToJar/releases">https://github.com/kusaanko/MCAddToJar/releases</a></p>
+    <p>サポートランチャーバージョン:2.x</p>
+    <p>サポートマインクラフトバージョン:1.0～1.5.2</p>
+    <br>
+    <h2>概要</h2>
+    <p>MCPatcherの新ランチャー対応版が私の環境では動かなかったので似たものを作りました。</p>
+    <p>上記のOldMCPatcherの導入を自動で行ってくれる機能もあります。（メイン機能？）</p>
+    <p>複数の便利機能を備えています。</p>
+    <p>Minecraft 1.0～1.5.2のみ対応。</p>
+    <p>～新ランチャーに対応。</p>
+    <p>Java 8以上を使って起動してください。</p>
+    <br>
+    <h3>jarファイルにMODを導入</h3>
+    <p>メイン機能ですね。7-Zipとか使わなくても自動で指定したzipもしくはjarMODの中身をjarファイルに入れてくれます。</p>
+    <br>
+    <h3>jsonファイル書き換え</h3>
+    <p>MCAddToJarの目玉機能です。これによりOldMCPatcherも導入可能となっています。</p>
+    <p>この機能は名前の通りjsonファイルを書き換えて新ランチャーで正常に起動できるようにしてくれます。コピーしてきただけではMOD環境が動きませんからね。</p>
+    <p>さらにOldMCPatcher導入時はmainClassの部分も変更してくれます。</p>
+    <p>1.2.5専用MOD、MCAPIに対応するためにLWJGLのリンクを更新する機能もついていますので、MCAPIが正常に起動します。</p>
+    <br>
+    <h3>Forgeダウンロード機能</h3>
+    <p>名前そのまま。Forgeを手動でサイトに行ってダウンロードしてってしなくてもバージョンを選ぶだけでダウンロードして追加してくれます。</p>
+    <br>
+    <h3>バニラダウンロード機能</h3>
+    <p>jarファイルに追加するMODの順番を変えたり、バージョンを更新したい際にはバニラの状態をコピーしてそのコピーしたファイルを書き換えています。</p>
+    <p>このツールを使用する際にはバニラのデータが必要なのですが、バニラの状態のファイルが無くても、公式サイトからダウンロードします。</p>
+    <br>
+    <h3>OldMCPatcher自動導入機能</h3>
+    <p>ワンクリックでOldMCPatcherを追加、出力時にjsonファイルを書き換えて起動できるようにしてくれます。上に書いた複雑な操作は不要です。</p>
+    <br>
+    <h3>バージョンコピー機能</h3>
+    <p>バージョンをコピーする際、通常はたくさんの名称変更が必要ですが、ワンクリックで行なえます。バージョン名変更機能もついています。</p>
+    <br>
+    <h3>OldMCPatcherの自動ダウンロード</h3>
+    <p>起動後OldMCPatcher.zipのSHA-256値を確認、サーバーにある値と比較後バージョンを特定し、最新版でなければアップデートします。</p>
+    <p>不正なファイルだったとしても公式のファイルをダウンロードしてくれます。</p>
+    <br>
+    <h3>コマンドで起動</h3>
+    <p>コマンドプロンプト・ターミナル・端末等でjava -jar MCAddToJar.jar .minecraftのディレクトリと入力して起動すると.minecraftのディレクトリを指定して起動できます。</p>
+    <p>例:java -jar MCAddToJar.jar C:\Users\kusaanko\Desktop\.minecraft</p>
+    <p>上の例のコマンドを実行するとC:\Users\kusaanko\Desktop\.minecraftというディレクトリを.minecraftのディレクトリに設定できます。</p>
+    <br>
+    <h2>使い方</h2>
+    <h2>スタート画面</h2>
+    <img src="MCAddToJar/start.png">
+    <p>起動すると.minecraft/versionsフォルダ内のバージョンを読み込みます。リストになっているので、書き換えたいバージョンをダブルクリックして開きましょう。</p>
+    <p>過去に開いたことがあるバージョンは一番上に来るのですぐに開けます。</p>
+    <h3>コピー</h3>
+    <img src="MCAddToJar/copy.png">
+    <p>既存のバージョンをコピーします。</p>
+    <p>バージョン名がすでに存在していればコピーすることはできません。「マインクラフトのバージョン+わかりやすくするための名前」としておくのがベストです。</p>
+    <h3>名前変更</h3>
+    <img src="MCAddToJar/rename.png">
+    <p>既存のバージョンの名前を変えます。</p>
+    <p>手動で変えようと思うとフォルダ名、jarファイル名、jsonファイル名、json内のidを書き換える必要があります。</p>
+    <p>こちらの機能を使えば名前を決めるだけで勝手に変えてくれます。</p>
+    <h3>バージョンを開く</h3>
+    <img src="MCAddToJar/selectVersion.png">
+    <p>リストの中からバージョンを選んでダブルクリックすると、初回選択時はこのような画面が出ます。</p>
+    <p>「1.2.5MOD」のようにバージョン名にMinecraftのバージョンが書いてあると自動検出して選択してくれますが「MOD」などMinecraftのバージョンが書かれていないと自動検出できないのでバージョンを手動で選択してください。</p>
+    <h3>バージョンを消した場合</h3>
+    <img src="MCAddToJar/renameProfile.png">
+    <p>MCAddToJar起動時にこのような画面が出ます。消したのか名前を変えたのかを選んでください。</p>
+    <p>名前を変えた際はどういう名前に変えたのかリストから選択してください。</p>
+    <h2>編集画面</h2>
+    <img src="MCAddToJar/edit.png">
+    <p>スタート画面で編集したいバージョンをダブルクリックするとこの画面が開きます。この画面でjarファイルに追加するMODを編集します。</p>
+    <h3>MODの追加</h3>
+    <img src="MCAddToJar/addMod.png">
+    <p>空白部分にファイルをドラッグアンドドロップすると一番下に追加されます。</p>
+    <h3>出力</h3>
+    <img src="MCAddToJar/output.png">
+    <p>出力ボタンを押して出力します。MODリストが空の場合は何もしません。</p>
+    <p>出力後は新ランチャーのバージョンをこのバージョンに設定して起動してください。うまく起動するはずです。</p>
+    <p>OldMCPatcherを追加するのを忘れずに。</p>
+    <h3>↑・↓</h3>
+    <img src="MCAddToJar/edit_up1.png"><img src="MCAddToJar/edit_up2.png">
+    <p>MODの順番を入れ替えます。MODを選択し、ボタンを押すことで上または下に移動します。</p>
+    <h3>編集</h3>
+    <img src="MCAddToJar/editFile.png">
+    <p>MODの中のファイルで、どれを追加するかを選びます。チェックが入っていれば追加、入っていなければ追加しないです。</p>
+    <h3>削除</h3>
+    <p>選択中のファイルをリストから消します。ファイルは消えません。リストから消えるだけです。</p>
+    <h3>バニラのダウンロード</h3>
+    <img src="MCAddToJar/downloadVanilla.png">
+    <p>jarファイルを改造する前の状態のファイルをダウンロードします。</p>
+    <p>バニラのバージョンをコピーした際は出力時にそのファイルをコピーしてオリジナルとして保存するのでこの操作は不要です。</p>
+    <p>バニラのデータではないバージョンをコピーした際にこの操作を実行してください。</p>
+    <h3>Forgeのダウンロード</h3>
+    <img src="MCAddToJar/downloadForge.png">
+    <p>Forgeバージョンの読み込みには時間がかかる場合と、すぐ終わる場合があることに注意してください。1分もあれば読み込み終わると思います。</p>
+    <p>バージョンを選択、OKをクリックするとダウンロードが始まります。ForgeはMCAddToJarが存在するフォルダの中にあるforgeフォルダの中にダウンロードされます。</p>
+    <p>すでにダウンロードしていてforgeフォルダにForgeがあればOKを押したらすぐにMODリストに追加されます。</p>
+    <h3>OldMCPatcher</h3>
+    <p>MCAddToJar.jarのあるフォルダにOldMCPatcher.zipをダウンロードしておくことで、ワンクリックで追加できます。</p>
+    <p>OldMCPatcher.zipがダウンロードされていなければ配置するファイル名も教えてくれます。</p>
+    <h3>jarをバックアップ</h3>
+    <p>jarファイルをzipファイルに圧縮してバックアップしてくれます。</p>
+    <h3>jsonをバックアップ</h3>
+    <p>jsonファイルをzipファイルに圧縮してバックアップしてくれます。</p>
+    <br>
+    <h2>profilesフォルダ</h2>
+    <p>MCAddToJar.jarのあるフォルダにprofilesフォルダが出来上がると思います。その中には何のMODを追加する、順番はどうするといった情報が書かれているprofileファイルがあります。</p>
+    <p>絶対に消さないようにしてください。アンインストール時は消してください。</p>
+    </div>
+  </body>
+</html>
