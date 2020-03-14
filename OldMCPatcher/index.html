@@ -33,7 +33,7 @@
       <iframe width="560" height="315" src="https://www.youtube.com/embed/OarWqDBFJto" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <h1>ことば</h1>
       <ul>
-        <li>Minecraft Launcher 2.1.5236以降=新ランチャー</li>
+        <li>Minecraft Launcher 2.1.12465以降=新ランチャー</li>
         <li>Minecraft 1.0～1.5.2=旧Minecraft</li>
         <li>jarファイル=.minecraft/versions/バージョン/バージョン.jarのMinecraft本体のjarファイル</li>
         <li>jsonファイル=.minecraft/versions/バージョン/バージョン.jsonの設定ファイルファイル</li>
@@ -41,10 +41,10 @@
       <h1>OldMCPatcher</h1>
       <p>新ランチャーで旧Minecraftを動かせるようにするMODです。</p>
       <p>ダウンロードリンク:<a href="https://github.com/kusaanko/OldMCPatcher/releases">https://github.com/kusaanko/OldMCPatcher/releases</a></p>
-      <p>サポートランチャーバージョン:2.1.5236以降</p>
+      <p>サポートランチャーバージョン:2.1.12465以降</p>
       <p>サポートマインクラフトバージョン:1.0～1.5.2（リリース版のみ）</p>
       <br>
-      <p>OldMCPatcher1.0.5以降ではMinecraft Launcher 2.1.5236以降のみサポートとなりました。</p>
+      <p>OldMCPatcher1.1.0以降ではMinecraft Launcher 2.1.12465以降のみサポートとなりました。</p>
       <p>それに伴いサウンドの読み込み方法が変わっています。</p>
       <br>
       <h2>概要</h2>
@@ -52,7 +52,6 @@
       <p>このMODには以下のパッチが含まれます。</p>
       <ul>
         <li>ゲームディレクトリ変更パッチ</li>
-        <li>サウンドダウンロード・ロードパッチ</li>
         <li>スキン適応パッチ</li>
       </ul>
       <p>また、旧ランチャーと同様の起動方法に変更するので旧ランチャー推奨MODも動作します。</p>
@@ -62,13 +61,11 @@
       <ul>
         <li>新ランチャーでは旧ランチャーと同様の起動はしてくれません。そのため、ウィンドウのタイトルを変更するMODなどはクラッシュします。</li>
         <li>ゲームディレクトリを変更した場合でもほとんどのバージョンではゲームディレクトリは変更されません。</li>
-        <li>リソースサーバーが移動したのでリソースがダウンロードできません。つまり、音が出ません。ただし、過去に旧Minecraftを起動したことがあり、resourcesフォルダを持っている場合はゲームディレクトリに入れることで音がなります。</li>
       </ul>
       <br>
       <h2>OldMCPatcherのパッチ内容</h2>
       <ul>
         <li>新ランチャーで設定したゲームディレクトリにMinecraftのファイルが生成、読み込みされるようにします。</li>
-        <li>リソースのダウンロード元を新しいURLに変更し、適切にダウンロードします。読み込みにもパッチを当て、エラーなく音がなるようにします。</li>
         <li>旧ランチャーと同様の動作にします。</li>
         <li>スキンを適切なサイトからダウンロードし読み込みます。</li>
       </ul>
@@ -106,10 +103,8 @@
     <p>※1は全く同じとは限らない。sha1、size、urlが変わっている場合もある。また、整形済みの文字なので実際は1行で書かれていることにも注意。</p>
     <p>※1はjarファイルがバニラのものに書き換わらないようにするために削除している。試しに書いたまま起動するとバニラが起動してしまう。</p>
     <p>以上の手順を行うことでOldMCPatcherの導入が完了となります。jar導入系MODであり、jsonの書き換えが必要なので手順は多いですが、頑張ってください。</p>
-    <br>
     <h2>スキン適応パッチ</h2>
     <p>スキン適応パッチはゲームディレクトリのresources/skin/playerSkin.zipファイルを読み書きします。容量は1KBを下回ると思います。</p>
-    <br>
     <h2>クラッシュレポート</h2>
     <p>クラッシュレポートに以下の文字が含まれていればOldMCPatcherのせいでクラッシュしています。</p>
     <ul>
@@ -122,9 +117,8 @@
     <img src="MCAddToJar/start.png">
     <p>OldMCPatcher導入サポートソフト。</p>
     <p>ダウンロードリンク:<a href="https://github.com/kusaanko/MCAddToJar/releases">https://github.com/kusaanko/MCAddToJar/releases</a></p>
-    <p>サポートランチャーバージョン:2.x</p>
+    <p>サポートランチャーバージョン:1.6以前、2.x</p>
     <p>サポートマインクラフトバージョン:1.0～1.5.2</p>
-    <br>
     <h2>概要</h2>
     <p>MCPatcherの新ランチャー対応版が私の環境では動かなかったので似たものを作りました。</p>
     <p>上記のOldMCPatcherの導入を自動で行ってくれる機能もあります。（メイン機能？）</p>
@@ -132,43 +126,35 @@
     <p>Minecraft 1.0～1.5.2のみ対応。</p>
     <p>～新ランチャーに対応。</p>
     <p>Java 8以上を使って起動してください。</p>
-    <br>
+    <p>1.6以前の旧ランチャーにも対応。</p>
     <h3>jarファイルにMODを導入</h3>
     <p>メイン機能ですね。7-Zipとか使わなくても自動で指定したzipもしくはjarMODの中身をjarファイルに入れてくれます。</p>
-    <br>
     <h3>jsonファイル書き換え</h3>
     <p>MCAddToJarの目玉機能です。これによりOldMCPatcherも導入可能となっています。</p>
     <p>この機能は名前の通りjsonファイルを書き換えて新ランチャーで正常に起動できるようにしてくれます。コピーしてきただけではMOD環境が動きませんからね。</p>
     <p>さらにOldMCPatcher導入時はmainClassの部分も変更してくれます。</p>
     <p>1.2.5専用MOD、MCAPIに対応するためにLWJGLのリンクを更新する機能もついていますので、MCAPIが正常に起動します。</p>
-    <br>
     <h3>Forgeダウンロード機能</h3>
     <p>名前そのまま。Forgeを手動でサイトに行ってダウンロードしてってしなくてもバージョンを選ぶだけでダウンロードして追加してくれます。</p>
-    <br>
     <h3>バニラダウンロード機能</h3>
     <p>jarファイルに追加するMODの順番を変えたり、バージョンを更新したい際にはバニラの状態をコピーしてそのコピーしたファイルを書き換えています。</p>
     <p>このツールを使用する際にはバニラのデータが必要なのですが、バニラの状態のファイルが無くても、公式サイトからダウンロードします。</p>
-    <br>
     <h3>OldMCPatcher自動導入機能</h3>
     <p>ワンクリックでOldMCPatcherを追加、出力時にjsonファイルを書き換えて起動できるようにしてくれます。上に書いた複雑な操作は不要です。</p>
-    <br>
     <h3>バージョンコピー機能</h3>
     <p>バージョンをコピーする際、通常はたくさんの名称変更が必要ですが、ワンクリックで行なえます。バージョン名変更機能もついています。</p>
-    <br>
     <h3>OldMCPatcherの自動ダウンロード</h3>
     <p>起動後OldMCPatcher.zipのSHA-256値を確認、サーバーにある値と比較後バージョンを特定し、最新版でなければアップデートします。</p>
     <p>不正なファイルだったとしても公式のファイルをダウンロードしてくれます。</p>
-    <br>
-    <h3>コマンドで起動</h3>
-    <p>コマンドプロンプト・ターミナル・端末等でjava -jar MCAddToJar.jar .minecraftのディレクトリと入力して起動すると.minecraftのディレクトリを指定して起動できます。</p>
-    <p>例:java -jar MCAddToJar.jar C:\Users\kusaanko\Desktop\.minecraft</p>
-    <p>上の例のコマンドを実行するとC:\Users\kusaanko\Desktop\.minecraftというディレクトリを.minecraftのディレクトリに設定できます。</p>
-    <br>
     <h2>使い方</h2>
     <h2>スタート画面</h2>
     <img src="MCAddToJar/start.png">
     <p>起動すると.minecraft/versionsフォルダ内のバージョンを読み込みます。リストになっているので、書き換えたいバージョンをダブルクリックして開きましょう。</p>
     <p>過去に開いたことがあるバージョンは一番上に来るのですぐに開けます。</p>
+    <h3>.minecraftのパスを設定</h3>
+    <img src="MCAddToJar/mcdir.png">
+    <p>.minecraftのディレクトリを変更できます。</p>
+    <p>.minecraftのディレクトリが見つからなかったときにも出てきます。</p>
     <h3>コピー</h3>
     <img src="MCAddToJar/copy.png">
     <p>既存のバージョンをコピーします。</p>
@@ -208,8 +194,7 @@
     <h3>バニラのダウンロード</h3>
     <img src="MCAddToJar/downloadVanilla.png">
     <p>jarファイルを改造する前の状態のファイルをダウンロードします。</p>
-    <p>バニラのバージョンをコピーした際は出力時にそのファイルをコピーしてオリジナルとして保存するのでこの操作は不要です。</p>
-    <p>バニラのデータではないバージョンをコピーした際にこの操作を実行してください。</p>
+    <p>出力時にオリジナルのファイルがなければ自動で起動してダウンロードしてくれます。</p>
     <h3>Forgeのダウンロード</h3>
     <img src="MCAddToJar/downloadForge.png">
     <p>Forgeバージョンの読み込みには時間がかかる場合と、すぐ終わる場合があることに注意してください。1分もあれば読み込み終わると思います。</p>
@@ -222,10 +207,13 @@
     <p>jarファイルをzipファイルに圧縮してバックアップしてくれます。</p>
     <h3>jsonをバックアップ</h3>
     <p>jsonファイルをzipファイルに圧縮してバックアップしてくれます。</p>
-    <br>
     <h2>profilesフォルダ</h2>
     <p>MCAddToJar.jarのあるフォルダにprofilesフォルダが出来上がると思います。その中には何のMODを追加する、順番はどうするといった情報が書かれているprofileファイルがあります。</p>
     <p>絶対に消さないようにしてください。アンインストール時は消してください。</p>
+    <h2>langフォルダ</h2>
+    <p>言語.langファイルを配置することで言語を追加できます。</p>
+    <p>MCAddToJar.jar内にあるen_US.langを参考にファイルを作成してください。</p>
+    <p>MCAddToJar.jar内にある言語ファイルよりlangversionが小さいとファイルが削除されてしまうので気をつけてください。</p>
     </div>
   </body>
 </html>
