@@ -1,0 +1,133 @@
+html{
+ min-height: 100%;
+}
+
+body{
+ margin: 0;
+ font-family: arial,sans-serif;
+}
+
+#ropimer_header {
+ width: 100%;
+ position: absolute;
+ z-index: 100;
+ top: calc(50vh - calc(50vw * 0.3605));
+}
+
+#top {
+ background-color: #000;
+ background-image: url("Ropimer/header.jpg");
+ background-size: cover;
+ background-attachment: fixed;
+ background-position: center center;
+ background: -webkit-linear-gradient(270deg, #95c2d9, #b3e3b9);
+ height: 100vh;
+ width: 100%;
+ position: absolute;
+}
+
+#top_fake {
+ height: 100vh;
+}
+
+.top_Title {
+ color: white;
+ text-align: center;
+ margin: 0 auto;
+ top: 40vh;
+ position: absolute;
+ width: 100%;
+ background: -webkit-linear-gradient(0deg, #e300ff, #2a54ff, #ff1a1a);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ z-index: 200;
+}
+.top_Title h1 {
+ font-size: 5vw;
+ margin: 0;
+}
+
+div.white{
+ background: #eee;
+ color: #222;
+}
+
+div.black{
+ background: #222;
+ color: #eee;
+}
+
+div.group1{
+ width: 80%;
+ margin: 0 auto;
+}
+
+div.group2 {
+ padding: 50px 0;
+}
+
+div.area {
+ width: calc(49% - 20px);
+ padding-left:10px;
+ padding-right:10px;
+ display: inline-block;
+ vertical-align: top;
+}
+@media (max-width: 1000px) {
+ div.area {
+  width: 100%;
+  padding: 30px 0;
+ }
+ .top_Title {
+  font-size: 10vw;
+ }
+}
+
+div.area img {
+ width: 100%;
+}
+
+p{
+ margin: 0;
+}
+
+#download_parent{
+ background: -webkit-linear-gradient(0deg, #a800ff, #ff9c55, #63ff40);
+ padding: 70px 0;
+}
+
+#download{
+ width: 80%;
+ margin: 0 auto;
+ text-align: center;
+ color: #eee;
+}
+
+#download p{
+ font-weight: bold;
+ margin-bottom: 50px;
+}
+
+#download h1{
+ margin: 0;
+}
+
+#download_button{
+ border: 1px solid;
+ border-color: #fff;
+ color: #fff;
+ text-decoration: none;
+ width: 20rem;
+ max-width: 80%;
+ height: 3rem;
+ display: block;
+ text-align: center;
+ line-height: 3rem;
+ transition: all .5s ease-out;
+ margin: 0 auto;
+}
+
+#download_button:hover{
+ background: #83d86e;
+ color: #eee;
+}
