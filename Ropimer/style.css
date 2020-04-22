@@ -7,6 +7,11 @@ body{
  font-family: arial,sans-serif;
 }
 
+#main {
+	padding: 10px 30px;
+	background-color: #ccc;
+}
+
 #ropimer_header {
  width: 100%;
  position: absolute;
@@ -50,11 +55,15 @@ body{
 div.white{
  background: #eee;
  color: #222;
+ margin: 10px 0;
+ border-radius: 20px;
 }
 
 div.black{
  background: #222;
  color: #eee;
+ margin: 10px 0;
+ border-radius: 20px;
 }
 
 div.group1{
@@ -81,6 +90,14 @@ div.area {
  .top_Title {
   font-size: 10vw;
  }
+ #download_parent {
+  background: -webkit-linear-gradient(0deg, #a800ff, #ff9c55);
+ }
+}
+@media (min-width: 1001px) {
+ #download_parent {
+  background: -webkit-linear-gradient(0deg, #a800ff, #ff9c55, #63ff40);
+ }
 }
 
 div.area img {
@@ -92,7 +109,6 @@ p{
 }
 
 #download_parent{
- background: -webkit-linear-gradient(0deg, #a800ff, #ff9c55, #63ff40);
  padding: 70px 0;
 }
 
