@@ -8,8 +8,14 @@
         font-family: meiryo, sans-serif;
       }
       .main {
-        margin: 0 40px;
+        margin: 10px 50px;
+		padding: 20px;
+	    background-color: #fff;
+		border-radius: 10px;
       }
+	  body {
+	    background-color: #33638a;
+	  }
       h2 {
         border-bottom: 1px solid #636363;
         border-left: 3px solid #636363;
@@ -115,14 +121,14 @@
     <img src="MCAddToJar/start.png">
     <p>OldMCPatcher導入サポートソフト。</p>
     <p>ダウンロードリンク:<a href="https://github.com/kusaanko/MCAddToJar/releases">https://github.com/kusaanko/MCAddToJar/releases</a></p>
-    <p>サポートランチャーバージョン:1.6以前、2.x</p>
+    <p>サポートランチャーバージョン:2.x</p>
     <p>サポートマインクラフトバージョン:1.0～1.5.2</p>
     <h2>概要</h2>
     <p>MCPatcherの新ランチャー対応版が私の環境では動かなかったので似たものを作りました。</p>
     <p>上記のOldMCPatcherの導入を自動で行ってくれる機能もあります。（メイン機能？）</p>
     <p>複数の便利機能を備えています。</p>
     <p>Minecraft 1.0～1.5.2のみ対応。</p>
-    <p>～新ランチャーに対応。</p>
+    <p>新ランチャーに対応。</p>
     <p>Java 8以上を使って起動してください。</p>
     <p>1.6以前の旧ランチャーにも対応。</p>
     <h3>jarファイルにMODを導入</h3>
@@ -154,6 +160,9 @@
     <img src="MCAddToJar/mcdir.png">
     <p>.minecraftのディレクトリを変更できます。</p>
     <p>.minecraftのディレクトリが見つからなかったときにも出てきます。</p>
+    <h3>表示するバージョン</h3>
+    <img src="MCAddToJar/versionstoshow.png">
+    <p>表示するバージョンを選択します。自動で判断しているので適切に判断されない場合もあります。</p>
     <h3>コピー</h3>
     <img src="MCAddToJar/copy.png">
     <p>既存のバージョンをコピーします。</p>
@@ -206,6 +215,46 @@
     <p>jarファイルをzipファイルに圧縮してバックアップしてくれます。</p>
     <h3>jsonをバックアップ</h3>
     <p>jsonファイルをzipファイルに圧縮してバックアップしてくれます。</p>
+	<h2>1.2.5専用の機能</h2>
+    <img src="MCAddToJar/1.2.5start.png">
+	<h2>Modマネージャー</h2>
+	<p>1.2.5用のMODをダウンロードできます。前提MODを自動でダウンロードしてくれる機能もあります。推奨バージョンでないMODのバージョンを合わせることも可能です。また、パッチ機能もあるので、MODにパッチを当てることもできます。IDの競合を回避したコンフィグをインストールすることも可能です。</p>
+	<h3>プロファイルを選択</h3>
+	<img src="MCAddToJar/choose_profile.png">
+	<p>プロファイルを選択します。プロファイルが一つしかない場合はこの画面は表示されません。</p>
+	<h3>重大</h3>
+	<img src="MCAddToJar/modmanager_serious.png">
+	<p>重大には前提MODが不足しているMODが出てきます。赤文字のMODが足りていません。</p>
+	<h3>要更新</h3>
+	<img src="MCAddToJar/modmanager_needupdating.png">
+	<p>MODのバージョンが古かったり、他のMODと共存するのに不都合なバージョンであるMODが表示されます。更新をクリックすることで推奨バージョンがダウンロードできます。</p>
+	<h3>インストール済み</h3>
+	<img src="MCAddToJar/modmanager_installed.png">
+	<p>インストール済みのMODを確認できます。削除、再ダウンロードが可能です。</p>
+	<h3>未インストール</h3>
+	<img src="MCAddToJar/modmanager_notinstalled.png">
+	<p>インストールされていないMODの一覧です。ここからMODをダウンロードすることができます。必要な前提MODは自動でダウンロードしてくれます。</p>
+	<p>また、競合する場合はインストールせず警告を出します。</p>
+	<h3>パッチ</h3>
+	<img src="MCAddToJar/modmanager_patch.png">
+	<p>MODにパッチを当てることができます。既に当てられているかどうかは検知できない(検知する仕組みを作っていない)ので、不安であれば何度でも当ててください。</p>
+	<h3>コンフィグ</h3>
+	<img src="MCAddToJar/modmanager_config.png">
+	<p>コンフィグを生成します。IDの競合回避済みのコンフィグになっています。</p>
+	<img src="MCAddToJar/modmanager_config_option.png">
+	<p>導入する際は、どのようにインストールするかを選択します。上書きは全て上書きします。存在しないファイルのみは存在するファイルは上書きしません。ファイルを選択は選択したファイルのみ上書きします。</p>
+	<h2>クラッシュログの解析</h2>
+	<img src="MCAddToJar/crashlog_analyzer.png">
+	<p>クラッシュログを解析します。対応しているクラッシュログのみなので、解析できないことがあります。ここに出てきたクラッシュログ全文を貼り付けてください。</p>
+	<h2>自動ソート</h2>
+	<img src="MCAddToJar/autosort.png">
+	<p>導入されているMODを推奨順に並び替えます。うまく起動しなかった際は手動で並び替えてください。</p>
+    <h2>forgeフォルダ</h2>
+    <p>ダウンロードしたforgeが置いてあります。削除してしまうと次回出力時に出力できなくなるので削除しないでください。</p>
+    <h2>modsフォルダ</h2>
+    <p>MODマネージャーを使用した際にダウンロードしたMODが置いてあります。消しても再ダウンロードしますが、ダウンロード元が404になったときには再ダウンロードできなくなるので注意してください。</p>
+    <h2>originalsフォルダ</h2>
+    <p>Minecraftのバニラがおいてあります。削除すると再度Minecraftのサーバーからダウンロードし直します。</p>
     <h2>profilesフォルダ</h2>
     <p>MCAddToJar.jarのあるフォルダにprofilesフォルダが出来上がると思います。その中には何のMODを追加する、順番はどうするといった情報が書かれているprofileファイルがあります。</p>
     <p>絶対に消さないようにしてください。アンインストール時は消してください。</p>
