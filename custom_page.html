@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Page</title>
+    <meta charset="UTF-8"></meta>
+</head>
+<body>
+    <h1>Custom Page</h1>
+	<p>Copyright 2021 kusaanko.</p>
+	<h2>What is this?</h2>
+	<p>This is a page for displaying dynamic web pages.</p>
+	<p>When the browser is accessed by entering the URL "data:text/html,%3Ch1%3EHello%2C%20World!%3C%2Fh1%3E", it will display a page with the content "Hello, World!".</p>
+	<p>This is used when you want to create a dynamic web page with such a URL and open it from an external application with the default web browser of the OS.</p>
+	<h2>How to use this?</h2>
+	<p>Put "?" after the URL of this page. after the URL of this page and insert the URL-encoded HTML code after it.</p>
+	<p>For example, the following</p>
+	<p>https://kusaanko.github.io/custom_page.html?%3Chtml%3E%3Cbody%3E%3Ch1%3EHello%2C%20World!%3C%2Fh1%3E%3C%2Fbody%3E%3C%2Fhtml%3E</p>
+	<p>script, onclick and iframe are not supported.</p>
+	<h2>Let's try this!</h2>
+	<textarea id="text" rows="20" cols="60"><html>
+<head>
+<title>Hello, World!</title>
+</head>
+<body>
+<h1>Hello, World!</h1>
+</body>
+</html></textarea>
+	<p><input id="open" type="button" value="Open in new tab"></p>
+    <script>
+	var content = window.location.search.substring(1);
+	if(content.length > 0) {
+	    var html = decodeURIComponent(content);
+		html = html.replaceAll('<script>', '');
+		html = html.replaceAll('<iframe>', '');
+		html = html.replace(/onclick[^=]*=[^"]*\"/g, '');
+	    document.querySelector('html').innerHTML = html + '<p>This page is hosted by <a href="https://kusaanko.github.io/custom_page.html" target="_blank" rel="noopener">Custom Page</a>.</p>';
+	}
+	document.querySelector('#open').onclick = function() {
+		window.open(window.location.href + '?' + encodeURIComponent(document.querySelector('#text').value), '_blank');
+	};
+	</script>
+</body>
+</html>
