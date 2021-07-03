@@ -39,7 +39,8 @@ body{
  color: white;
  text-align: center;
  margin: 0 auto;
- top: 40vh;
+ top: 50vh;
+ transform: translateX(-50%);
  position: absolute;
  width: 100%;
  background: -webkit-linear-gradient(0deg, #e300ff, #2a54ff, #ff1a1a);
