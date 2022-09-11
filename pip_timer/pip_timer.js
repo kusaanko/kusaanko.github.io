@@ -46,15 +46,6 @@ function init() {
     video.muted = true;
     resize();
     video.play();
-    video.pause();
-    video.addEventListener('pause', function() {
-        timer -= Math.ceil((getUnix() - startTime) / 1000);
-        paused = true;
-    });
-    video.addEventListener('play', function() {
-        startTime = getUnix();
-        paused = false;
-    });
 }
 
 function pip() {
@@ -67,6 +58,7 @@ function resize() {
     canvas.width = getWidth();
     canvas.height = getSize() * 2;
     video.srcObject = canvas.captureStream();
+    video.play();
 }
 function getWidth() {
     ctx.font = getSize() + "px system-ui";
@@ -79,10 +71,12 @@ function set() {
     timer = document.querySelector('#minutes').value * 60;
 }
 function start() {
-    video.play();
+    startTime = getUnix();
+    paused = false;
 }
 function pause() {
-    video.pause();
+    timer -= Math.ceil((getUnix() - startTime) / 1000);
+    paused = true;
 }
 function getUnix() {
     return new Date().getTime();
