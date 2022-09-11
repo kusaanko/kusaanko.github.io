@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PiP Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="canvas" width="150" height="40" style="display: none;"></canvas>
+    <video id="video" width="150" height="40" controls></video>
+    <h2>時間設定</h2>
+    <p><input id="minutes" type="number" min="1" max="999" value="30">分</p>
+    <p><button onclick="set();">確定</button></p>
+    <p><button onclick="start();">開始</button></p>
+    <p><button onclick="pause()">一時停止</button></p>
+    <p><button onclick="set()">リセット</button></p>
+    <p><button onclick="pip();">Picture In Picture</button></p>
+    <script src="pip_timer.js"></script>
+</body>
+</html>
