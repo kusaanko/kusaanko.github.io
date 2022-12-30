@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     <title>Redirect hash</title>
+</head>
+<body>
     <script>
         const newLink = window.location.href.substr(window.location.href.indexOf('redirect_hash.html') + 'redirect_hash.html?to='.length).replace("#", "&");
         window.location.href = newLink;
-        document.querySelector('body').innerText = newLink;
-        window.close();
+        document.querySelector('body').innerText = 'Redirect to ' + newLink;
     </script>
-</head>
-<body>
 </body>
 </html>
