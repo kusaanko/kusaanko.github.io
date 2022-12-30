@@ -3,9 +3,9 @@
 <head>
     <title>Redirect hash</title>
     <script>
-        const url = new URL(window.location.href);
-        const params = new URLSearchParams(url.search);
-        window.lcoation.href(window.location.href.substr(0, 'https://kusaanko.github.io/redirect_hash.html?to='.length()).replace("#", "&"));
+        const newLink = window.location.href.substr(0, 'https://kusaanko.github.io/redirect_hash.html?to='.length()).replace("#", "&");
+        window.lcoation.href(newLink);
+        document.querySelector('body').innerText = newLink;
         window.close();
     </script>
 </head>
