@@ -3,7 +3,9 @@
 <head>
     <title>Redirect hash</title>
     <script>
-        window.lcoation.href(window.location.href.replace("#", "&"));
+        const url = new URL(window.location.href);
+        const params = new URLSearchParams(url.search);
+        window.lcoation.href(params.get('to').replace("#", "&"));
         window.close();
     </script>
 </head>
