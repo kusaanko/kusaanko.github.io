@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=360px, initial-scale=1.0">
+    <title>HDMI Viewer</title>
+    <style>
+        html {
+            margin: o;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        video {
+            width: 100%;
+            height: 56.25vw
+        }
+    </style>
+</head>
+
+<body>
+    <video id="video" width="1280" height="720" autoplay></video>
+    <aduio id="aduio" autoplay></aduio>
+    <p><button id="fullscreen">Full screen</button></p>
+    <script>
+        var video = document.getElementById('video');
+        var fullscreen = document.getElementById('fullscreen');
+        fullscreen.onclick = function () {
+            if (!!video.requestFullScreen) {
+                video.requestFullScreen();
+            } else if (!!video.webkitRequestFullScreen) {
+                video.webkitRequestFullScreen();
+            } else if (!!video.webkitEnterFullscreen) {
+                video.webkitEnterFullscreen();
+            } else if (!!video.mozRequestFullScreen) {
+                video.mozRequestFullScreen();
+            } else if (!!video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+        }
+        console.log(navigator.mediaDevices.getSupportedConstraints());
+        var audioId, videoId
+        navigator.mediaDevices.getUserMedia({ audio: true, video: true })
+            .then(stream => {
+                if (!navigator.mediaDevices?.enumerateDevices) {
+                    console.log("enumerateDevices() not supported.");
+                } else {
+                    // List cameras and microphones.
+                    navigator.mediaDevices.enumerateDevices()
+                        .then((devices) => {
+                            devices.forEach((device) => {
+                                console.log(`${device.kind}: ${device.label} id = ${device.deviceId}`);
+                                if (device.label.indexOf('I-O DATA GV-HUVC 4K, Video Capture USB') >= 0) {
+                                    videoId = device.deviceId
+                                }
+                                if (device.label.indexOf('I-O DATA GV-HUVC 4K, Audio Capture USB') >= 0) {
+                                    audioId = device.deviceId
+                                }
+                            });
+                        })
+                        .then(() => {
+                            navigator.mediaDevices.getUserMedia(
+                                {
+                                    audio: {
+                                        noiseSuppression: false,
+                                        echoCancellation: false,
+                                        deviceId: {
+                                            exact: audioId
+                                        }
+                                    },
+                                    video: {
+                                        width: 1920,
+                                        height: 1080,
+                                        deviceId: {
+                                            exact: videoId
+                                        }
+                                    }
+                                }
+                            ).then(function (stream) {
+                                video.srcObject = stream;
+                                video.play();
+                            });
+                        })
+                        .catch((err) => {
+                            console.error(`${err.name}: ${err.message}`);
+                        });
+                }
+            })
+            .catch(err => console.error("queryMediaDevices:Error", err));
+    </script>
+</body>
+
+</html>
